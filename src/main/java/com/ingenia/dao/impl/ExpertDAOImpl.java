@@ -11,6 +11,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -88,15 +89,16 @@ public class ExpertDAOImpl implements ExpertDAO {
      * Actualiza un experto ya existente por su id
      * @param id
      * @param expertUpdated
-     * @return experto actualizado si se ha podido actualizar y null si no se ha encontrado
+     * @return experto actualizado si se ha podido actualizar y experto sin campos si no se ha encontrado en la BD
      */
     @Override
     public Expert updateExpert(Long id, Expert expertUpdated) {
         Optional<Expert> expertoBD = repository.findById(id);
         if(expertoBD.isPresent()){
-            repository.save(expertUpdated);
+            expertUpdated.setUpdated_at(LocalDate.now());
+            return repository.save(expertUpdated);
         }
-        return null;
+        return new Expert();
     }
 
 
