@@ -36,6 +36,7 @@ public class ExpertTest {
         Expert expertoActualizado = service.updateExpert(expertoDB.getId(), expertoDB);
         Assertions.assertNotNull(expertoActualizado.getUpdated_at());
         Assertions.assertNotEquals(expertoActualizado.getCreated_at() ,expertoActualizado.getUpdated_at());
+
     }
 
 
