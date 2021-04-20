@@ -1,8 +1,12 @@
 package com.ingenia.model;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -14,9 +18,11 @@ public class Expert {
 
     private String nombre;
 
-    private LocalDate created_at;
+    @CreatedDate
+    private LocalDate created_at = LocalDate.now();
 
-    private LocalDate updated_at;
+    @LastModifiedDate
+    private LocalDate updated_at = LocalDate.now();
 
     private String estado_motivo;
 
@@ -71,10 +77,8 @@ public class Expert {
     public Expert() {
     }
 
-    public Expert(String nombre, LocalDate created_at, LocalDate updated_at, String estado_motivo, String disponibilidad, String modalidad, Boolean autonomo, String contacto_telefono, String contacto_email, String contacto_ciudad, String contacto_linkedin, String condiciones_porcentaje, String condiciones_precio_hora, Integer puntuacion, String nif, String credenciales_correo, String credenciales_correo_password, String credenciales_zoom, String credenciales_zoom_password, String fichero_foto, String fichero_cv, String observaciones, String origen, State estado) {
+    public Expert(String nombre, String estado_motivo, String disponibilidad, String modalidad, Boolean autonomo, String contacto_telefono, String contacto_email, String contacto_ciudad, String contacto_linkedin, String condiciones_porcentaje, String condiciones_precio_hora, Integer puntuacion, String nif, String credenciales_correo, String credenciales_correo_password, String credenciales_zoom, String credenciales_zoom_password, String fichero_foto, String fichero_cv, String observaciones, String origen, State estado) {
         this.nombre = nombre;
-        this.created_at = created_at;
-        this.updated_at = updated_at;
         this.estado_motivo = estado_motivo;
         this.disponibilidad = disponibilidad;
         this.modalidad = modalidad;
