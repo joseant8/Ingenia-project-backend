@@ -1,9 +1,10 @@
 package com.ingenia.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class User {
@@ -15,6 +16,10 @@ public class User {
     private String nombre;
 
     private String email;
+
+    @OneToMany(mappedBy = "creador", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Tag> etiquetas = new ArrayList<>();
 
     public User() {
     }
@@ -46,5 +51,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public List<Tag> getEtiquetas() {
+        return etiquetas;
+    }
+
+    public void setEtiquetas(List<Tag> etiquetas) {
+        this.etiquetas = etiquetas;
     }
 }

@@ -1,9 +1,6 @@
 package com.ingenia.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +60,12 @@ public class Expert {
 
     private State estado;
 
+    @ManyToMany
+    @JoinTable(
+            name = "expert_tag",
+            joinColumns = {@JoinColumn(name="expert_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name="tag_id", referencedColumnName = "id")}
+    )
     private List<Tag> etiquetas = new ArrayList<>();
 
     public Expert() {

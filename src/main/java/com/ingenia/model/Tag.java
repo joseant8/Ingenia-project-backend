@@ -1,10 +1,11 @@
 package com.ingenia.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Tag {
@@ -17,7 +18,13 @@ public class Tag {
 
     private LocalDate created_at;
 
+    @ManyToOne()
+    @JoinColumn(name = "user_id")
     private User creador;
+
+    @ManyToMany(mappedBy = "etiquetas")
+    @JsonIgnore    // Para evitar en la respuesta json la recursión infinita en relaciones bidireccionales
+    private List<Expert> expertos = new ArrayList<>();
 
     public Tag() {
     }
@@ -58,5 +65,13 @@ public class Tag {
 
     public void setCreador(User creador) {
         this.creador = creador;
+    }
+
+    public List<Expert> getExpertos() {
+        return expertos;
+    }
+
+    public void setExpertos(List<Expert> expertos) {
+        this.expertos = expertos;
     }
 }
