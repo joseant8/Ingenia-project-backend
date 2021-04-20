@@ -7,7 +7,7 @@ import javax.persistence.EntityManagerFactory;
 
 @Configuration
 public class JpaConfig {
+
     @Autowired
     private EntityManagerFactory entityManagerFactory;
-
 }
