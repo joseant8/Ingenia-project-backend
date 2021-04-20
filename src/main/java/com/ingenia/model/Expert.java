@@ -4,7 +4,6 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -19,10 +18,10 @@ public class Expert {
     private String nombre;
 
     @CreatedDate
-    private LocalDate created_at = LocalDate.now();
+    private Date created_at = new Date();
 
     @LastModifiedDate
-    private LocalDate updated_at = LocalDate.now();
+    private Date updated_at = new Date();
 
     private String estado_motivo;
 
@@ -118,19 +117,19 @@ public class Expert {
         this.nombre = nombre;
     }
 
-    public LocalDate getCreated_at() {
+    public Date getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(LocalDate created_at) {
+    public void setCreated_at(Date created_at) {
         this.created_at = created_at;
     }
 
-    public LocalDate getUpdated_at() {
+    public Date getUpdated_at() {
         return updated_at;
     }
 
-    public void setUpdated_at(LocalDate updated_at) {
+    public void setUpdated_at(Date updated_at) {
         this.updated_at = updated_at;
     }
 
