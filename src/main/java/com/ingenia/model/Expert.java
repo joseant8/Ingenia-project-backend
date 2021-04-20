@@ -15,7 +15,7 @@ public class Expert {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String  nombre;
+    private String nombre;
 
     private LocalDate created_at;
 
@@ -61,14 +61,14 @@ public class Expert {
 
     private String origen;
 
-    private String estado;
+    private State estado;
 
     private List<Tag> etiquetas = new ArrayList<>();
 
     public Expert() {
     }
 
-    public Expert(String nombre, LocalDate created_at, LocalDate updated_at, String estado_motivo, String disponibilidad, String modalidad, Boolean autonomo, String contacto_telefono, String contacto_email, String contacto_ciudad, String contacto_linkedin, String condiciones_porcentaje, String condiciones_precio_hora, Integer puntuacion, String nif, String credenciales_correo, String credenciales_correo_password, String credenciales_zoom, String credenciales_zoom_password, String fichero_foto, String fichero_cv, String observaciones, String origen, String estado) {
+    public Expert(String nombre, LocalDate created_at, LocalDate updated_at, String estado_motivo, String disponibilidad, String modalidad, Boolean autonomo, String contacto_telefono, String contacto_email, String contacto_ciudad, String contacto_linkedin, String condiciones_porcentaje, String condiciones_precio_hora, Integer puntuacion, String nif, String credenciales_correo, String credenciales_correo_password, String credenciales_zoom, String credenciales_zoom_password, String fichero_foto, String fichero_cv, String observaciones, String origen, State estado) {
         this.nombre = nombre;
         this.created_at = created_at;
         this.updated_at = updated_at;
@@ -287,11 +287,11 @@ public class Expert {
         this.origen = origen;
     }
 
-    public String getEstado() {
+    public State getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(State estado) {
         this.estado = estado;
     }
 
