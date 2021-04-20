@@ -1,0 +1,2 @@
+insert into expert (nombre, created_at) values ("Juan López Giménez", CURRENT_TIMESTAMP);
+insert into expert (nombre, created_at, updated_at) values ("María Martín Giménez", "2021-04-18", "2021-04-18");
