@@ -30,8 +30,8 @@ public class ExpertDAOImpl implements ExpertDAO {
     // --------------------------
 
     /**
-     * Método para obtener todos los expertos de la BD
-     * @return lista de expertos
+     * Obtener todos los expertos de la BD.
+     * @return Lista de expertos.
      */
     @Override
     public List<Expert> getAllExperts() {
@@ -40,19 +40,28 @@ public class ExpertDAOImpl implements ExpertDAO {
     }
 
     /**
-     * Método para obtener un experto según su id
+     * Obtener un experto por su id.
      * @param id
-     * @return
+     * @return Experto de la BD. Si no lo encuentra o se produce algún error, devuelve experto con parámetros vacíos.
      */
     @Override
     public Expert getExpert(Long id) {
-        return manager.find(Expert.class, id);
+        try{
+            Expert expertoBD = manager.find(Expert.class, id);
+            if(expertoBD == null){
+                return new Expert();
+            }else{
+                return expertoBD;
+            }
+        }catch(Exception e){
+            return new Expert();
+        }
     }
 
     /**
-     * Obtener los expertos por nombre o parte de él
-     * @param substring con el nombre completo o parte de él
-     * @return lista filtrada de expertos
+     * Filtra los expertos con el nombre o parte de él que se pasa como parámetro.
+     * @param substring nombre o subnombre
+     * @return Lista de expertos filtrada.
      */
     @Override
     public List<Expert> filterByNameContains(String substring) {
@@ -71,9 +80,9 @@ public class ExpertDAOImpl implements ExpertDAO {
     // --------------------------
 
     /**
-     * Método para crear un nuevo experto
-     * @param expert
-     * @return
+     * Crea un experto nuevo.
+     * @param expert experto
+     * @return El experto creado.
      */
     @Override
     public Expert createExpert(Expert expert) {
@@ -86,19 +95,25 @@ public class ExpertDAOImpl implements ExpertDAO {
     // --------------------------
 
     /**
-     * Actualiza un experto ya existente por su id
+     * Actualiza un experto ya existente.
      * @param id
-     * @param expertUpdated
-     * @return experto actualizado si se ha podido actualizar y experto sin campos si no se ha encontrado en la BD
+     * @param expertUpdated experto
+     * @return Experto actualizado. Si no se encuentra en la BD, devuelve un experto con parámetros vacíos (no se guarda en la BD).
      */
     @Override
     public Expert updateExpert(Long id, Expert expertUpdated) {
-        Optional<Expert> expertoBD = repository.findById(id);
+        Optional<Expert> expertoBD = Optional.empty();
+        if(id != null){
+            expertoBD = repository.findById(id);
+        }
+
         if(expertoBD.isPresent()){
             expertUpdated.setUpdated_at(new Date());
             return repository.save(expertUpdated);
+        }else{
+            return new Expert();
         }
-        return new Expert();
+
     }
 
 
@@ -107,9 +122,9 @@ public class ExpertDAOImpl implements ExpertDAO {
     // --------------------------
 
     /**
-     * Elimina un experto de la BD. Devuelve true si se ha eliminado y false si no se ha encontrado
+     * Elimina un experto de la BD.
      * @param id
-     * @return boolean
+     * @return True si se ha eliminado y false si no se ha encontrado en la BD.
      */
     @Override
     public boolean deleteExpert(Long id) {

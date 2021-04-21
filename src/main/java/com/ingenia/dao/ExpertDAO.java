@@ -9,50 +9,50 @@ public interface ExpertDAO {
     // consultas y filtros
 
     /**
-     * Método para obtener todos los expertos de la BD
-     * @return lista de expertos
+     * Obtener todos los expertos de la BD.
+     * @return Lista de expertos.
      */
     public List<Expert> getAllExperts();
 
     /**
-     * Método para obtener un experto según su id
+     * Obtener un experto por su id.
      * @param id
-     * @return
+     * @return Experto de la BD. Si no lo encuentra, devuelve experto con parámetros vacíos.
      */
     public Expert getExpert(Long id);
 
     /**
-     * Obtener los expertos por nombre o parte de él
-     * @param name nombre completo o parte de él
-     * @return lista filtrada de expertos
+     * Filtra los expertos con el nombre o parte de él que se pasa como parámetro.
+     * @param name nombre o subnombre
+     * @return Lista de expertos filtrada.
      */
     public List<Expert> filterByNameContains(String name);
 
     // crear
 
     /**
-     * Método para crear un nuevo experto
+     * Crea un experto nuevo.
      * @param expert experto
-     * @return
+     * @return El experto creado.
      */
     public Expert createExpert(Expert expert);
 
     // actualizar
 
     /**
-     * Actualiza un experto ya existente por su id
+     * Actualiza un experto ya existente.
      * @param id
-     * @param expertUpdated
-     * @return experto actualizado si se ha podido actualizar y null si no se ha encontrado
+     * @param expertUpdated experto
+     * @return Experto actualizado. Si no se encuentra en la BD, devuelve un experto con parámetros vacíos (no se guarda en la BD).
      */
     public Expert updateExpert(Long id, Expert expertUpdated);
 
     // eliminar
 
     /**
-     * Elimina un experto de la BD. Devuelve true si se ha eliminado y false si no se ha encontrado
+     * Elimina un experto de la BD.
      * @param id
-     * @return boolean
+     * @return True si se ha eliminado y false si no se ha encontrado en la BD.
      */
     public boolean deleteExpert(Long id);
 

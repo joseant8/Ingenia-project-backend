@@ -33,6 +33,7 @@ public class Expert {
 
     private String contacto_telefono;
 
+    @Column(unique=true)
     private String contacto_email;
 
     private String contacto_ciudad;
@@ -103,10 +104,6 @@ public class Expert {
 
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getNombre() {

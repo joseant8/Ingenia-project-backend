@@ -67,8 +67,15 @@ public class ExpertController {
         if(expert.getId() == null){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+
         Expert expertoActualizado = service.updateExpert(id, expert);
-        return ResponseEntity.ok().body(expertoActualizado);
+
+        if(expertoActualizado.getId() != null){
+            return ResponseEntity.ok().body(expertoActualizado);
+        }else{
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
     }
 
 
