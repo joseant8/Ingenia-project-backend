@@ -14,3 +14,5 @@ INSERT INTO expert (autonomo, condiciones_porcentaje, condiciones_precio_hora, c
 	 (NULL,'10.00','15.00','Córdoba','email11@email.com','e','883456734','2021-04-21','Hola','','e','','mañanas y tardes',0,NULL,NULL,NULL,NULL,'72345678A','Sandra Carrasco Martín',NULL,NULL,70,'2021-04-21')
 	 ;
 
+-- inserto usuario con password codificada
+INSERT INTO user (nombre_real, username, email, password) VALUES ('Jose Antonio Marí', 'admin1', 'admin1@email.com', '$2a$10$lBzSDeiPcfCrOXBljvc1BOyI32oa9BXfhks6xBx8WubO5WdfLnh3a');

@@ -13,9 +13,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nombre;
+    private String nombreReal;
+
+    private String username;
 
     private String email;
+
+    private String password;
 
     @OneToMany(mappedBy = "creador", cascade = CascadeType.ALL)
     @JsonIgnore
@@ -24,9 +28,17 @@ public class User {
     public User() {
     }
 
-    public User(String nombre, String email) {
-        this.nombre = nombre;
+    public User(String username, String email, String password) {
+        this.username = username;
         this.email = email;
+        this.password = password;
+    }
+
+    public User(String nombreReal, String username, String email, String password) {
+        this.nombreReal = nombreReal;
+        this.username = username;
+        this.email = email;
+        this.password = password;
     }
 
     public Long getId() {
@@ -37,12 +49,20 @@ public class User {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombreReal() {
+        return nombreReal;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setNombreReal(String nombreReal) {
+        this.nombreReal = nombreReal;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getEmail() {
@@ -51,6 +71,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public List<Tag> getEtiquetas() {
