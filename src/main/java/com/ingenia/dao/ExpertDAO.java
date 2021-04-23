@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ExpertDAO {
 
-    // consultas y filtros
+    // recuperar/filtros
 
     /**
      * Obtener todos los expertos de la BD.
@@ -43,7 +43,7 @@ public interface ExpertDAO {
      * Actualiza un experto ya existente.
      * @param id
      * @param expertUpdated experto
-     * @return Experto actualizado. Si no se encuentra en la BD, devuelve un experto con parámetros vacíos (no se guarda en la BD).
+     * @return Experto actualizado. Si no se encuentra en la BD, devuelve un experto con parámetros vacíos.
      */
     public Expert updateExpert(Long id, Expert expertUpdated);
 

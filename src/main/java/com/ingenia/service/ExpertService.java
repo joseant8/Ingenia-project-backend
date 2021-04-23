@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ExpertService {
 
-    // consultas y filtros
+    // recuperar/filtros
 
     /**
      * Obtener todos los expertos de la BD.

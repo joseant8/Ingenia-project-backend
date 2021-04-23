@@ -26,7 +26,7 @@ public class ExpertDAOImpl implements ExpertDAO {
 
 
     // --------------------------
-    // Consultas/filtros
+    // Recuperar/filtros
     // --------------------------
 
     /**

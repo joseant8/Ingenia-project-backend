@@ -21,7 +21,7 @@ public class ExpertController {
     }
 
     // -----------------------------
-    // Consultas/filtros
+    // Recuperar/filtros
     // -----------------------------
 
     @GetMapping("/expertos")
