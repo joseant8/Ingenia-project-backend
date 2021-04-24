@@ -2,8 +2,17 @@ package com.ingenia.payload.request;
 
 public class SignupRequest {
 
+    private String nombreCompleto;
     private String username;
     private String password;
+
+    public String getNombreCompleto() {
+        return nombreCompleto;
+    }
+
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
+    }
 
     public String getUsername() {
         return username;

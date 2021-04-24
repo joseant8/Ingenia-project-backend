@@ -58,7 +58,8 @@ public class AuthController<JwtUtils> {
         }
 
         // Crea nueva cuenta de usuario
-        User user = new User(signUpRequest.getUsername(),
+        User user = new User(signUpRequest.getNombreCompleto(),
+                            signUpRequest.getUsername(),
                             encoder.encode(signUpRequest.getPassword()));
 
         userRepository.save(user);
