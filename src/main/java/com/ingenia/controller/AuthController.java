@@ -1,6 +1,5 @@
 package com.ingenia.controller;
 
-
 import com.ingenia.model.User;
 import com.ingenia.payload.request.LoginRequest;
 import com.ingenia.payload.request.SignupRequest;
@@ -16,13 +15,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/API/auth")
+@RequestMapping("/API/auth")  // /API/auth
 public class AuthController<JwtUtils> {
 
     @Autowired
@@ -54,23 +50,15 @@ public class AuthController<JwtUtils> {
     @PostMapping("/signup")
     public ResponseEntity<MessageResponse> registerUser(@RequestBody SignupRequest signUpRequest) {
 
-        // Check 1: username
+        // Comprueba: username
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
                     .body(new MessageResponse("Error: El nombre de usuario ya existe"));
         }
 
-        // Check 2: email
-        if (userRepository.existsByEmail(signUpRequest.getEmail())) {
-            return ResponseEntity
-                    .badRequest()
-                    .body(new MessageResponse("Error: El email ya existe"));
-        }
-
         // Crea nueva cuenta de usuario
         User user = new User(signUpRequest.getUsername(),
-                            signUpRequest.getEmail(),
                             encoder.encode(signUpRequest.getPassword()));
 
         userRepository.save(user);

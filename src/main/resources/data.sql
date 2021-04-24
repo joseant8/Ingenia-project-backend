@@ -14,5 +14,47 @@ INSERT INTO expert (autonomo, condiciones_porcentaje, condiciones_precio_hora, c
 	 (NULL,'10.00','15.00','Córdoba','email11@email.com','e','883456734','2021-04-21','Hola','','e','','mañanas y tardes',0,NULL,NULL,NULL,NULL,'72345678A','Sandra Carrasco Martín',NULL,NULL,70,'2021-04-21')
 	 ;
 
+
+-- inserto etiquetas de prueba en la BD
+INSERT INTO tag (nombre, created_at) VALUES ('React', '2021-04-21 12:16:00');
+INSERT INTO tag (nombre, created_at) VALUES ('Angular', '2021-04-21 12:16:00');
+INSERT INTO tag (nombre, created_at) VALUES ('Spring', '2021-04-21 12:16:00');
+INSERT INTO tag (nombre, created_at) VALUES ('Java', '2021-04-21 12:16:00');
+INSERT INTO tag (nombre, created_at) VALUES ('JavaScript', '2021-04-21 12:16:00');
+INSERT INTO tag (nombre, created_at) VALUES ('TypeScript', '2021-04-21 12:16:00');
+INSERT INTO tag (nombre, created_at) VALUES ('C++', '2021-04-21 12:16:00');
+INSERT INTO tag (nombre, created_at) VALUES ('Docker', '2021-04-21 12:16:00');
+INSERT INTO tag (nombre, created_at) VALUES ('Python', '2021-04-21 12:16:00');
+INSERT INTO tag (nombre, created_at) VALUES ('Django', '2021-04-21 12:16:00');
+
+
 -- inserto usuario con password codificada
-INSERT INTO user (nombre_real, username, email, password) VALUES ('Jose Antonio Marí', 'admin1', 'admin1@email.com', '$2a$10$lBzSDeiPcfCrOXBljvc1BOyI32oa9BXfhks6xBx8WubO5WdfLnh3a');
+INSERT INTO user (nombre_completo, username, password) VALUES ('Jose Antonio Marí', 'admin1@email.com', '$2a$10$lBzSDeiPcfCrOXBljvc1BOyI32oa9BXfhks6xBx8WubO5WdfLnh3a');
+
+
+-- Relaciones
+-- inserto relaciones expertos-etiquetas
+INSERT INTO expert_tag (expert_id, tag_id) VALUES (1, 1),(1,2),(1,5),(1,6);
+INSERT INTO expert_tag (expert_id, tag_id) VALUES (2, 1),(2,2),(2,5),(2,6);
+INSERT INTO expert_tag (expert_id, tag_id) VALUES (3, 9),(3,10),(3,3),(3,4);
+INSERT INTO expert_tag (expert_id, tag_id) VALUES (4, 9),(4,10),(4,3),(4,4);
+INSERT INTO expert_tag (expert_id, tag_id) VALUES (5, 7),(5,2),(5,5),(5,6);
+INSERT INTO expert_tag (expert_id, tag_id) VALUES (6, 7),(6,2),(6,5),(6,6);
+INSERT INTO expert_tag (expert_id, tag_id) VALUES (7, 4),(7,3),(7,5),(7,6);
+INSERT INTO expert_tag (expert_id, tag_id) VALUES (8, 4),(8,3),(8,7);
+INSERT INTO expert_tag (expert_id, tag_id) VALUES (9, 4),(9,3),(9,7);
+INSERT INTO expert_tag (expert_id, tag_id) VALUES (10, 4),(10,3);
+INSERT INTO expert_tag (expert_id, tag_id) VALUES (11, 4),(11,3);
+
+
+-- relaciones usuario(creador)-etiqueta
+UPDATE TAG SET user_id=1 where id=1;
+UPDATE TAG SET user_id=1 where id=2;
+UPDATE TAG SET user_id=1 where id=3;
+UPDATE TAG SET user_id=1 where id=4;
+UPDATE TAG SET user_id=1 where id=5;
+UPDATE TAG SET user_id=1 where id=6;
+UPDATE TAG SET user_id=1 where id=7;
+UPDATE TAG SET user_id=1 where id=8;
+UPDATE TAG SET user_id=1 where id=9;
+UPDATE TAG SET user_id=1 where id=10;

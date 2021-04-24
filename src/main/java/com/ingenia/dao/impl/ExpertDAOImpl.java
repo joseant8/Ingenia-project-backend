@@ -122,7 +122,7 @@ public class ExpertDAOImpl implements ExpertDAO {
     // --------------------------
 
     /**
-     * Elimina un experto de la BD.
+     * Elimina un experto de la BD. También elimina todas las asociaciones de ese experto y etiquetas relacionadas.
      * @param id
      * @return True si se ha eliminado y false si no se ha encontrado en la BD.
      */
@@ -131,6 +131,7 @@ public class ExpertDAOImpl implements ExpertDAO {
         Optional<Expert> expertoBD = repository.findById(id);
 
         if(expertoBD.isPresent()){
+            expertoBD.get().setEtiquetas(null);   // para eliminar todas las asociaciones entre el experto y las etiquetas relacionadas
             repository.delete(expertoBD.get());
             return true;
         }else{

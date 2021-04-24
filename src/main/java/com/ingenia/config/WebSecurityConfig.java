@@ -1,3 +1,4 @@
+
 package com.ingenia.config;
 
 import com.ingenia.security.jwt.JwtAuthEntryPoint;

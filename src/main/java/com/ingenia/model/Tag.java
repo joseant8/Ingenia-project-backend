@@ -3,8 +3,8 @@ package com.ingenia.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -16,20 +16,26 @@ public class Tag {
 
     private String nombre;
 
-    private LocalDate created_at;
+    private Date created_at;
 
     @ManyToOne()
     @JoinColumn(name = "user_id")
     private User creador;
 
-    @ManyToMany(mappedBy = "etiquetas")
+    //@ManyToMany(mappedBy = "etiquetas")   // si lo hago así no sería 'owner' (más problemas luego para desasociar relaciones con expertos desde la entidad etiqueta)
+    @ManyToMany
+    @JoinTable(
+            name = "expert_tag",
+            joinColumns = {@JoinColumn(name="tag_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name="expert_id", referencedColumnName = "id")}
+    )
     @JsonIgnore    // Para evitar en la respuesta json la recursión infinita en relaciones bidireccionales
     private List<Expert> expertos = new ArrayList<>();
 
     public Tag() {
     }
 
-    public Tag(String nombre, LocalDate created_at, User creador) {
+    public Tag(String nombre, Date created_at, User creador) {
         this.nombre = nombre;
         this.created_at = created_at;
         this.creador = creador;
@@ -51,11 +57,11 @@ public class Tag {
         this.nombre = nombre;
     }
 
-    public LocalDate getCreated_at() {
+    public Date getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(LocalDate created_at) {
+    public void setCreated_at(Date created_at) {
         this.created_at = created_at;
     }
 

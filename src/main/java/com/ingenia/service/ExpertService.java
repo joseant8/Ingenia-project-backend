@@ -50,7 +50,7 @@ public interface ExpertService {
     // eliminar
 
     /**
-     * Elimina un experto de la BD.
+     * Elimina un experto de la BD. También elimina todas las asociaciones entre ese experto y las etiquetas relacionadas.
      * @param id
      * @return True si se ha eliminado y false si no se ha encontrado en la BD.
      */

@@ -13,12 +13,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nombreReal;
+    private String nombreCompleto;
 
-    private String username;
+    private String username;  // usa una cuenta de email como nombre de usuario
 
-    private String email;
-
+    @JsonIgnore
     private String password;
 
     @OneToMany(mappedBy = "creador", cascade = CascadeType.ALL)
@@ -28,16 +27,14 @@ public class User {
     public User() {
     }
 
-    public User(String username, String email, String password) {
+    public User(String username, String password) {
         this.username = username;
-        this.email = email;
         this.password = password;
     }
 
-    public User(String nombreReal, String username, String email, String password) {
-        this.nombreReal = nombreReal;
+    public User(String nombreCompleto, String username, String password) {
+        this.nombreCompleto = nombreCompleto;
         this.username = username;
-        this.email = email;
         this.password = password;
     }
 
@@ -49,12 +46,12 @@ public class User {
         this.id = id;
     }
 
-    public String getNombreReal() {
-        return nombreReal;
+    public String getNombreCompleto() {
+        return nombreCompleto;
     }
 
-    public void setNombreReal(String nombreReal) {
-        this.nombreReal = nombreReal;
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
     }
 
     public String getUsername() {
@@ -63,14 +60,6 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPassword() {
