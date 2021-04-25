@@ -294,8 +294,12 @@ public class Expert {
         this.origen = origen;
     }
 
-    public State getEstado() {
-        return estado;
+    public String getEstado() {
+        if(estado.equals(State.PENDIENTE)){
+            return "Pdte. Validar";
+        }else{
+            return "Validado";
+        }
     }
 
     public void setEstado(State estado) {
