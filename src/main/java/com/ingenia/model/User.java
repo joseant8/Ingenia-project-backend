@@ -15,6 +15,7 @@ public class User {
 
     private String nombreCompleto;
 
+    @Column(unique=true)
     private String username;  // usa una cuenta de email como nombre de usuario
 
     @JsonIgnore

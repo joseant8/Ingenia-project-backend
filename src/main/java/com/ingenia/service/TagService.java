@@ -1,6 +1,7 @@
 package com.ingenia.service;
 
 import com.ingenia.model.Tag;
+import com.ingenia.payload.request.TagRequest;
 
 import java.util.List;
 
@@ -40,5 +41,15 @@ public interface TagService {
      * @return True si se ha eliminado correctamente y false si no se ha encontrado.
      */
     public boolean deleteTag(Long id);
+
+
+    // otros métodos
+
+    /**
+     * Transforma los datos de la petición de creación de etiqueta en objeto 'Tag' (modelo).
+     * @param request
+     * @return Etiqueta
+     */
+    public Tag transformToTag(TagRequest request);
 
 }

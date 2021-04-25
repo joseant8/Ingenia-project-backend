@@ -1,6 +1,7 @@
 package com.ingenia.controller;
 
 import com.ingenia.model.Tag;
+import com.ingenia.payload.request.TagRequest;
 import com.ingenia.service.TagService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,13 +45,22 @@ public class TagController {
     // --------------------------
 
     @PostMapping("/etiquetas")
-    public ResponseEntity<Tag> createTag(@RequestBody Tag tag) throws URISyntaxException {
+    public ResponseEntity<Tag> createTag(@RequestBody TagRequest tag) throws URISyntaxException {
+
+        if(tag.getNombreTag() != null){
+            Tag etiquetaCreada = service.createTag(service.transformToTag(tag));
+            return ResponseEntity.created(new URI("/API/etiquetas/" + etiquetaCreada.getId())).body(etiquetaCreada);
+        }else{
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        /*
         if(tag.getId() == null){
             Tag etiquetaCreada = service.createTag(tag);
             return ResponseEntity.created(new URI("/API/etiquetas/" + etiquetaCreada.getId())).body(etiquetaCreada);
         }else{
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        }*/
     }
 
     // --------------------------

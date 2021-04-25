@@ -17,6 +17,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/API/auth")  // /API/auth
 public class AuthController<JwtUtils> {
@@ -43,8 +45,9 @@ public class AuthController<JwtUtils> {
         String jwt = jwtTokenUtil.generateJwtToken(authentication);
 
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        Optional<User> userLoggedIn = userRepository.findByUsername(loginRequest.getUsername());
 
-        return ResponseEntity.ok(new JwtResponse(jwt));
+        return ResponseEntity.ok(new JwtResponse(jwt, userLoggedIn.get()));
     }
 
     @PostMapping("/signup")

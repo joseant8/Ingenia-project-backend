@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,6 +64,7 @@ public class TagDAOImpl implements TagDAO {
      */
     @Override
     public Tag createTag(Tag tag) {
+        tag.setCreated_at(new Date());
         return repository.save(tag);
     }
 
