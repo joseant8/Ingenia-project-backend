@@ -1,6 +1,8 @@
 package com.ingenia.service;
 
 import com.ingenia.model.Expert;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.util.List;
 
@@ -13,6 +15,12 @@ public interface ExpertService {
      * @return Lista de expertos.
      */
     public List<Expert> getAllExperts();
+
+    /**
+     * Obtener todos los expertos de la BD con paginación.
+     * @return Lista de expertos paginada.
+     */
+    public Page<Expert> getAllExpertsPaging(Pageable paging);
 
     /**
      * Obtener un experto por su id.

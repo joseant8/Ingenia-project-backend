@@ -4,6 +4,8 @@ import com.ingenia.dao.ExpertDAO;
 import com.ingenia.model.Expert;
 import com.ingenia.repository.ExpertRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -37,6 +39,15 @@ public class ExpertDAOImpl implements ExpertDAO {
     public List<Expert> getAllExperts() {
         List<Expert> lista = manager.createQuery("from Expert", Expert.class).getResultList();
         return lista;
+    }
+
+    /**
+     * Obtener todos los expertos de la BD con paginación.
+     * @return Lista de expertos paginada.
+     */
+    @Override
+    public Page<Expert> getAllExpertsPaging(Pageable paging) {
+        return repository.findAll(paging);
     }
 
     /**

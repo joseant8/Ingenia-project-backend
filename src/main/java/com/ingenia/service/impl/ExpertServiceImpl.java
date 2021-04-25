@@ -3,6 +3,8 @@ package com.ingenia.service.impl;
 import com.ingenia.dao.ExpertDAO;
 import com.ingenia.model.Expert;
 import com.ingenia.service.ExpertService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +21,11 @@ public class ExpertServiceImpl implements ExpertService {
     @Override
     public List<Expert> getAllExperts() {
         return expertDAO.getAllExperts();
+    }
+
+    @Override
+    public Page<Expert> getAllExpertsPaging(Pageable paging) {
+        return getAllExpertsPaging(paging);
     }
 
     @Override

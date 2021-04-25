@@ -2,6 +2,9 @@ package com.ingenia.controller;
 
 import com.ingenia.model.Expert;
 import com.ingenia.service.ExpertService;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,6 +31,18 @@ public class ExpertController {
     public List<Expert> getAllExperts(){
         return service.getAllExperts();
     }
+
+
+    // Paginación
+    @GetMapping("/expertos/paginacion")
+    public List<Expert> getAllExpertsPaged() {
+
+        Pageable paging = PageRequest.of(1, 5);
+        Page<Expert> pagedResult = service.getAllExpertsPaging(paging);
+        List<Expert> listP = pagedResult.getContent();
+        return listP;
+    }
+
 
     @GetMapping("/expertos/{id}")
     public ResponseEntity<Expert> getExpert(@PathVariable Long id){
