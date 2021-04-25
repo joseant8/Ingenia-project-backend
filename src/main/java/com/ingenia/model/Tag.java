@@ -1,6 +1,7 @@
 package com.ingenia.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public class Tag {
 
     private String nombre;
 
+    @CreatedDate
     private Date created_at;
 
     @ManyToOne()

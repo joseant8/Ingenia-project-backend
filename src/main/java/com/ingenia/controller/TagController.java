@@ -46,9 +46,7 @@ public class TagController {
     @PostMapping("/etiquetas")
     public ResponseEntity<Tag> createTag(@RequestBody Tag tag) throws URISyntaxException {
         if(tag.getId() == null){
-            System.out.println("Contenido id: "+tag.getId());
             Tag etiquetaCreada = service.createTag(tag);
-            System.out.println("Crea etiqueta nueva");
             return ResponseEntity.created(new URI("/API/etiquetas/" + etiquetaCreada.getId())).body(etiquetaCreada);
         }else{
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);

@@ -1,7 +1,6 @@
 package com.ingenia.dao.impl;
 
 import com.ingenia.dao.UserDAO;
-import com.ingenia.model.Tag;
 import com.ingenia.model.User;
 import com.ingenia.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
