@@ -1,0 +1,812 @@
+{
+	"info": {
+		"_postman_id": "920fa2b9-ba0a-4ec2-916b-d1cf87e9421b",
+		"name": "Ingenia-project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Experts",
+			"item": [
+				{
+					"name": "getAllExpertsUnathorized",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/API/expertos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"expertos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllExperts",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjFAZW1haWwuY29tIiwiaWF0IjoxNjE5MzQ3NTQxLCJleHAiOjE2MTk0MzM5NDF9.dOXp9Xgo15R2xAve48qK9FL-ZeNqnMUmfO7R-mKYoPedPJcQlIzSVan5qlCSqUaiG6RWgiagPMuiRE67lo0iRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/API/expertos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"expertos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOneExpert",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjFAZW1haWwuY29tIiwiaWF0IjoxNjE5NDM1NTc2LCJleHAiOjE2MTk2MDgzNzZ9.YBHNhW56Q03W3XxQKUVRGgPZFfOVV2pcxLTNSoNCh-3Sw1Gtv3JkVICx5mdbQbt9F72Lr4SpZfCd9raoZM-5sg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/API/expertos/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"expertos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createExpert",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjFAZW1haWwuY29tIiwiaWF0IjoxNjE5MzQ3NTQxLCJleHAiOjE2MTk0MzM5NDF9.dOXp9Xgo15R2xAve48qK9FL-ZeNqnMUmfO7R-mKYoPedPJcQlIzSVan5qlCSqUaiG6RWgiagPMuiRE67lo0iRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombre\": \"Esteban Norris\",\r\n    \"created_at\": \"2021-04-21T10:16:00.000+00:00\",\r\n    \"updated_at\": \"2021-04-21T10:16:00.000+00:00\",\r\n    \"estado_motivo\": null,\r\n    \"disponibilidad\": \"mañanas\",\r\n    \"modalidad\": null,\r\n    \"autonomo\": null,\r\n    \"contacto_telefono\": \"123456734\",\r\n    \"contacto_email\": \"emailNorris@email.com\",\r\n    \"contacto_ciudad\": \"Valencia\",\r\n    \"contacto_linkedin\": \"e\",\r\n    \"condiciones_porcentaje\": \"10.00\",\r\n    \"condiciones_precio_hora\": \"15.00\",\r\n    \"puntuacion\": 70,\r\n    \"nif\": \"12345678A\",\r\n    \"credenciales_correo\": \"Hola\",\r\n    \"credenciales_correo_password\": \"\",\r\n    \"credenciales_zoom\": \"e\",\r\n    \"credenciales_zoom_password\": \"\",\r\n    \"fichero_foto\": null,\r\n    \"fichero_cv\": null,\r\n    \"observaciones\": null,\r\n    \"origen\": null,\r\n    \"estado\": \"PENDIENTE\",\r\n    \"etiquetas\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/API/expertos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"expertos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createExpertBadRequest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjFAZW1haWwuY29tIiwiaWF0IjoxNjE5MzQ3NTQxLCJleHAiOjE2MTk0MzM5NDF9.dOXp9Xgo15R2xAve48qK9FL-ZeNqnMUmfO7R-mKYoPedPJcQlIzSVan5qlCSqUaiG6RWgiagPMuiRE67lo0iRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Esteban Norris\",\r\n    \"created_at\": \"2021-04-21T10:16:00.000+00:00\",\r\n    \"updated_at\": \"2021-04-21T10:16:00.000+00:00\",\r\n    \"estado_motivo\": null,\r\n    \"disponibilidad\": \"mañanas\",\r\n    \"modalidad\": null,\r\n    \"autonomo\": null,\r\n    \"contacto_telefono\": \"123456734\",\r\n    \"contacto_email\": \"emailNorris@email.com\",\r\n    \"contacto_ciudad\": \"Valencia\",\r\n    \"contacto_linkedin\": \"e\",\r\n    \"condiciones_porcentaje\": \"10.00\",\r\n    \"condiciones_precio_hora\": \"15.00\",\r\n    \"puntuacion\": 70,\r\n    \"nif\": \"12345678A\",\r\n    \"credenciales_correo\": \"Hola\",\r\n    \"credenciales_correo_password\": \"\",\r\n    \"credenciales_zoom\": \"e\",\r\n    \"credenciales_zoom_password\": \"\",\r\n    \"fichero_foto\": null,\r\n    \"fichero_cv\": null,\r\n    \"observaciones\": null,\r\n    \"origen\": null,\r\n    \"estado\": \"PENDIENTE\",\r\n    \"etiquetas\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/API/expertos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"expertos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateExpert",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjFAZW1haWwuY29tIiwiaWF0IjoxNjE5NDM1NTc2LCJleHAiOjE2MTk2MDgzNzZ9.YBHNhW56Q03W3XxQKUVRGgPZFfOVV2pcxLTNSoNCh-3Sw1Gtv3JkVICx5mdbQbt9F72Lr4SpZfCd9raoZM-5sg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Esteban Norris\",\r\n    \"created_at\": \"2021-04-21T10:16:00.000+00:00\",\r\n    \"updated_at\": \"2021-04-21T10:16:00.000+00:00\",\r\n    \"estado_motivo\": null,\r\n    \"disponibilidad\": \"mañanas\",\r\n    \"modalidad\": null,\r\n    \"autonomo\": null,\r\n    \"contacto_telefono\": \"123456734\",\r\n    \"contacto_email\": \"emailNorris@email.com\",\r\n    \"contacto_ciudad\": \"Valencia\",\r\n    \"contacto_linkedin\": \"e\",\r\n    \"condiciones_porcentaje\": \"10.00\",\r\n    \"condiciones_precio_hora\": \"15.00\",\r\n    \"puntuacion\": 70,\r\n    \"nif\": \"12345678A\",\r\n    \"credenciales_correo\": \"Hola\",\r\n    \"credenciales_correo_password\": \"\",\r\n    \"credenciales_zoom\": \"e\",\r\n    \"credenciales_zoom_password\": \"\",\r\n    \"fichero_foto\": null,\r\n    \"fichero_cv\": null,\r\n    \"observaciones\": null,\r\n    \"origen\": null,\r\n    \"estado\": \"PENDIENTE\",\r\n    \"etiquetas\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/API/expertos/13",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"expertos",
+								"13"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateExpertNotExist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjFAZW1haWwuY29tIiwiaWF0IjoxNjE5NDM1NTc2LCJleHAiOjE2MTk2MDgzNzZ9.YBHNhW56Q03W3XxQKUVRGgPZFfOVV2pcxLTNSoNCh-3Sw1Gtv3JkVICx5mdbQbt9F72Lr4SpZfCd9raoZM-5sg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombre\": \"Esteban Norris\",\r\n    \"created_at\": \"2021-04-21T10:16:00.000+00:00\",\r\n    \"updated_at\": \"2021-04-21T10:16:00.000+00:00\",\r\n    \"estado_motivo\": null,\r\n    \"disponibilidad\": \"mañanas\",\r\n    \"modalidad\": null,\r\n    \"autonomo\": null,\r\n    \"contacto_telefono\": \"123456734\",\r\n    \"contacto_email\": \"emailNorris@email.com\",\r\n    \"contacto_ciudad\": \"Valencia\",\r\n    \"contacto_linkedin\": \"e\",\r\n    \"condiciones_porcentaje\": \"10.00\",\r\n    \"condiciones_precio_hora\": \"15.00\",\r\n    \"puntuacion\": 70,\r\n    \"nif\": \"12345678A\",\r\n    \"credenciales_correo\": \"Hola\",\r\n    \"credenciales_correo_password\": \"\",\r\n    \"credenciales_zoom\": \"e\",\r\n    \"credenciales_zoom_password\": \"\",\r\n    \"fichero_foto\": null,\r\n    \"fichero_cv\": null,\r\n    \"observaciones\": null,\r\n    \"origen\": null,\r\n    \"estado\": \"PENDIENTE\",\r\n    \"etiquetas\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/API/expertos/100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"expertos",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteExpert",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjFAZW1haWwuY29tIiwiaWF0IjoxNjE5MzQ3NTQxLCJleHAiOjE2MTk0MzM5NDF9.dOXp9Xgo15R2xAve48qK9FL-ZeNqnMUmfO7R-mKYoPedPJcQlIzSVan5qlCSqUaiG6RWgiagPMuiRE67lo0iRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/API/expertos/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"expertos",
+								"10"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"admin1@email.com\",\r\n    \"password\":\"ingenia01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/API/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "loginUserNotExists",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"admin55@email.com\",\r\n    \"password\":\"ingenia01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/API/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreCompleto\": \"Prueba Admin\",\r\n    \"username\":\"admin2@email.com\",\r\n    \"password\":\"ingenia01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/API/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signupUsernameAlreadyExists",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreCompleto\": \"Prueba Admin\",\r\n    \"username\": \"admin1@email.com\",\r\n    \"password\":\"ingenia01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/API/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tags",
+			"item": [
+				{
+					"name": "getAllTagsUnauthorized",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/API/etiquetas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"etiquetas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllTags",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjFAZW1haWwuY29tIiwiaWF0IjoxNjE5MzQ3NTQxLCJleHAiOjE2MTk0MzM5NDF9.dOXp9Xgo15R2xAve48qK9FL-ZeNqnMUmfO7R-mKYoPedPJcQlIzSVan5qlCSqUaiG6RWgiagPMuiRE67lo0iRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/API/etiquetas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"etiquetas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOneTag",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjFAZW1haWwuY29tIiwiaWF0IjoxNjE5MzQ3NTQxLCJleHAiOjE2MTk0MzM5NDF9.dOXp9Xgo15R2xAve48qK9FL-ZeNqnMUmfO7R-mKYoPedPJcQlIzSVan5qlCSqUaiG6RWgiagPMuiRE67lo0iRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/API/etiquetas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"etiquetas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createTag",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjFAZW1haWwuY29tIiwiaWF0IjoxNjE5MzQ3NTQxLCJleHAiOjE2MTk0MzM5NDF9.dOXp9Xgo15R2xAve48qK9FL-ZeNqnMUmfO7R-mKYoPedPJcQlIzSVan5qlCSqUaiG6RWgiagPMuiRE67lo0iRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreTag\": \"Haskell\",\r\n    \"usernameCreador\": \"admin1@email.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/API/etiquetas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"etiquetas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createTagAlreadyExists",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjFAZW1haWwuY29tIiwiaWF0IjoxNjE5MzQ3NTQxLCJleHAiOjE2MTk0MzM5NDF9.dOXp9Xgo15R2xAve48qK9FL-ZeNqnMUmfO7R-mKYoPedPJcQlIzSVan5qlCSqUaiG6RWgiagPMuiRE67lo0iRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreTag\": \"Java\",\r\n    \"usernameCreador\": \"admin1@email.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/API/etiquetas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"etiquetas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTag",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjFAZW1haWwuY29tIiwiaWF0IjoxNjE5MzQ3NTQxLCJleHAiOjE2MTk0MzM5NDF9.dOXp9Xgo15R2xAve48qK9FL-ZeNqnMUmfO7R-mKYoPedPJcQlIzSVan5qlCSqUaiG6RWgiagPMuiRE67lo0iRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/API/etiquetas/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"etiquetas",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTagNotExist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjFAZW1haWwuY29tIiwiaWF0IjoxNjE5MzQ3NTQxLCJleHAiOjE2MTk0MzM5NDF9.dOXp9Xgo15R2xAve48qK9FL-ZeNqnMUmfO7R-mKYoPedPJcQlIzSVan5qlCSqUaiG6RWgiagPMuiRE67lo0iRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/API/etiquetas/100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"etiquetas",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createTagBadRequest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjFAZW1haWwuY29tIiwiaWF0IjoxNjE5MzQ3NTQxLCJleHAiOjE2MTk0MzM5NDF9.dOXp9Xgo15R2xAve48qK9FL-ZeNqnMUmfO7R-mKYoPedPJcQlIzSVan5qlCSqUaiG6RWgiagPMuiRE67lo0iRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 15,\r\n    \"nombre\": null,\r\n    \"created_at\": null,\r\n    \"creador\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/API/etiquetas",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"etiquetas"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "getUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjFAZW1haWwuY29tIiwiaWF0IjoxNjE5MzQ3NTQxLCJleHAiOjE2MTk0MzM5NDF9.dOXp9Xgo15R2xAve48qK9FL-ZeNqnMUmfO7R-mKYoPedPJcQlIzSVan5qlCSqUaiG6RWgiagPMuiRE67lo0iRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/API/usuarios/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"usuarios",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createUserBadRequest",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjFAZW1haWwuY29tIiwiaWF0IjoxNjE5MzQ3NTQxLCJleHAiOjE2MTk0MzM5NDF9.dOXp9Xgo15R2xAve48qK9FL-ZeNqnMUmfO7R-mKYoPedPJcQlIzSVan5qlCSqUaiG6RWgiagPMuiRE67lo0iRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nombreCompleto\": \"Jose Antonio Marí\",\r\n    \"username\": \"admin2@email.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/API/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "createUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbjFAZW1haWwuY29tIiwiaWF0IjoxNjE5MzQ3NTQxLCJleHAiOjE2MTk0MzM5NDF9.dOXp9Xgo15R2xAve48qK9FL-ZeNqnMUmfO7R-mKYoPedPJcQlIzSVan5qlCSqUaiG6RWgiagPMuiRE67lo0iRw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreCompleto\": \"Admin\",\r\n    \"username\": \"admin2@email.com\",\r\n    \"password\": \"$2a$10$lBzSDeiPcfCrOXBljvc1BOyI32oa9BXfhks6xBx8WubO5WdfLnh3a\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/API/usuarios",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"API",
+								"usuarios"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
