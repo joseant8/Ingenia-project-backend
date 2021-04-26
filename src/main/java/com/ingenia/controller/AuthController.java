@@ -53,11 +53,11 @@ public class AuthController<JwtUtils> {
     @PostMapping("/signup")
     public ResponseEntity<MessageResponse> registerUser(@RequestBody SignupRequest signUpRequest) {
 
-        // Comprueba: username
+        // Comprueba: username (email)
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
-                    .body(new MessageResponse("Error: El nombre de usuario ya existe"));
+                    .body(new MessageResponse("Error: Este email ya está registrado."));
         }
 
         // Crea nueva cuenta de usuario
@@ -67,6 +67,6 @@ public class AuthController<JwtUtils> {
 
         userRepository.save(user);
 
-        return ResponseEntity.ok(new MessageResponse("Usuario registrado correctamente"));
+        return ResponseEntity.ok(new MessageResponse("Usuario registrado correctamente."));
     }
 }
