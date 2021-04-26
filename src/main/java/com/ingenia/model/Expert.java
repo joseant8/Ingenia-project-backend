@@ -64,7 +64,7 @@ public class Expert {
 
     private String origen;
 
-    private State estado;
+    private State estado = State.PENDIENTE;
 
     @ManyToMany
     @JoinTable(
