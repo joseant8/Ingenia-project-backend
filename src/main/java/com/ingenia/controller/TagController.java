@@ -48,19 +48,14 @@ public class TagController {
     public ResponseEntity<Tag> createTag(@RequestBody TagRequest tag) throws URISyntaxException {
 
         if(tag.getNombreTag() != null){
+            if(service.nameTagAlreadyExists(tag.getNombreTag())){
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
             Tag etiquetaCreada = service.createTag(service.transformToTag(tag));
             return ResponseEntity.created(new URI("/API/etiquetas/" + etiquetaCreada.getId())).body(etiquetaCreada);
         }else{
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-
-        /*
-        if(tag.getId() == null){
-            Tag etiquetaCreada = service.createTag(tag);
-            return ResponseEntity.created(new URI("/API/etiquetas/" + etiquetaCreada.getId())).body(etiquetaCreada);
-        }else{
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }*/
     }
 
     // --------------------------

@@ -88,4 +88,13 @@ public class TagDAOImpl implements TagDAO {
             return false;
         }
     }
+
+    /**
+     * Comprueba si el nombre de la etiqueta ya existe en la BD.
+     * @return Tru si existe y false en caso contrario.
+     */
+    @Override
+    public boolean nameTagAlreadyExists(String name) {
+        return repository.existsByNombre(name);
+    }
 }

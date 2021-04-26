@@ -52,4 +52,11 @@ public interface TagService {
      */
     public Tag transformToTag(TagRequest request);
 
+
+    /**
+     * Comprueba si el nombre de la etiqueta ya existe en la BD.
+     * @return Tru si existe y false en caso contrario.
+     */
+    public boolean nameTagAlreadyExists(String name);
+
 }

@@ -40,4 +40,12 @@ public interface TagDAO {
      * @return True si se ha eliminado correctamente y false si no se ha encontrado.
      */
     public boolean deleteTag(Long id);
+
+    // Otros métodos
+
+    /**
+     * Comprueba si el nombre de la etiqueta ya existe en la BD.
+     * @return Tru si existe y false en caso contrario.
+     */
+    public boolean nameTagAlreadyExists(String name);
 }

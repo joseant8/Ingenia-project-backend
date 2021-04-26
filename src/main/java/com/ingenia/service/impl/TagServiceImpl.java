@@ -55,4 +55,9 @@ public class TagServiceImpl implements TagService {
         }
         return etiqueta;
     }
+
+    @Override
+    public boolean nameTagAlreadyExists(String name) {
+        return tagDAO.nameTagAlreadyExists(name);
+    }
 }
