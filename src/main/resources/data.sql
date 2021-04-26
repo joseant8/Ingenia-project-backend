@@ -8,8 +8,8 @@ INSERT INTO expert (autonomo, condiciones_porcentaje, condiciones_precio_hora, c
 	 (NULL,'10.00','15.00','Málaga','email5@email.com','e','523456734','2021-04-20','Hola','','e','','mañanas',1,NULL,NULL,NULL,NULL,'52345678A','Antonio Muñoz Muñoz',NULL,NULL,50,'2021-04-21'),
 	 (NULL,'10.00','15.00','Málaga','email6@email.com','e','623456734','2021-04-21','Hola','','e','','mañanas',1,NULL,NULL,NULL,NULL,'62345678A','Fernando Carrasco López',NULL,NULL,70,'2021-04-21'),
 	 (NULL,'10.00','15.00','Sevilla','email7@email.com','e','723456734','2021-04-14','Hola','','e','','tardes',1,NULL,NULL,NULL,NULL,'72345678A','Antonio Pérez Muñoz',NULL,NULL,70,'2021-04-21'),
-	 (NULL,'10.00','15.00','Granada','email8@email.com','e','823456734','2021-04-21','Hola','','e','','mañanas y tardes',0,NULL,NULL,NULL,NULL,'82345678A','Marta Pérez Muñoz',NULL,NULL,70,'2021-04-21'),
-	 (NULL,'10.00','15.00','Málaga','email9@email.com','e','923456734','2021-04-21','Hola','','e','','mañanas y tardes',0,NULL,NULL,NULL,NULL,'92345678A','Jorge Ruiz Campos',NULL,NULL,60,'2021-04-21'),
+	 (NULL,'10.00','15.00','Granada','email8@email.com','e','823456734','2021-04-21','Hola','','e','','mañanas y tardes',0,NULL,NULL,NULL,NULL,'82345678A','Marta Pérez Muñoz',NULL,NULL,20,'2021-04-21'),
+	 (NULL,'10.00','15.00','Málaga','email9@email.com','e','923456734','2021-04-21','Hola','','e','','mañanas y tardes',0,NULL,NULL,NULL,NULL,'92345678A','Jorge Ruiz Campos',NULL,NULL,30,'2021-04-21'),
 	 (NULL,'10.00','15.00','Málaga','email10@email.com','e','993456734','2021-04-20','Hola','','e','','mañanas y tardes',0,NULL,NULL,NULL,NULL,'13345678A','Steve Gates',NULL,NULL,70,'2021-04-21'),
 	 (NULL,'10.00','15.00','Córdoba','email11@email.com','e','883456734','2021-04-21','Hola','','e','','mañanas y tardes',0,NULL,NULL,NULL,NULL,'72345678A','Sandra Carrasco Martín',NULL,NULL,70,'2021-04-21')
 	 ;
