@@ -2,6 +2,7 @@ package com.ingenia.dao;
 
 import com.ingenia.model.Expert;
 import com.ingenia.model.State;
+import com.ingenia.payload.request.ExpertEditRequest;
 import com.ingenia.service.ExpertService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -31,37 +32,14 @@ public class ExpertTest {
     public void updateOneExpertCheckDate() {
 
         Expert expertoDB = service.getExpert(2l);
+        ExpertEditRequest peticion = new ExpertEditRequest();
+        peticion.setNombre("Editado");
 
         expertoDB.setPuntuacion(80);
-        Expert expertoActualizado = service.updateExpert(expertoDB.getId(), expertoDB);
+        Expert expertoActualizado = service.updateExpert(expertoDB.getId(), peticion);
 
         Assertions.assertNotNull(expertoActualizado.getUpdated_at());
         Assertions.assertNotEquals(expertoActualizado.getCreated_at() ,expertoActualizado.getUpdated_at());
-
-    }
-
-    @Test
-    @DisplayName("Actualizar un experto cuyo id está en la BD, otro con id que no existe y otro con null")
-    public void updateOneExpertCheckId() {
-
-        Expert expertoDB1 = service.getExpert(2l);
-        Expert expertoDB2 = service.getExpert(1000l);
-        Expert expertoDB3 = service.getExpert(null);
-
-        expertoDB1.setPuntuacion(80);
-        Expert expertoActualizado1 = service.updateExpert(expertoDB1.getId(), expertoDB1);
-
-        expertoDB2.setPuntuacion(90);
-        Expert expertoActualizado2 = service.updateExpert(1000l, expertoDB2);
-
-        expertoDB3.setPuntuacion(100);
-        Expert expertoActualizado3 = service.updateExpert(null, expertoDB3);
-
-        Assertions.assertNotNull(expertoActualizado1.getId());
-        Assertions.assertNotEquals(expertoActualizado1.getCreated_at() ,expertoActualizado1.getUpdated_at());
-
-        Assertions.assertNull(expertoActualizado2.getId());
-        Assertions.assertNull(expertoActualizado3.getId());
 
     }
 

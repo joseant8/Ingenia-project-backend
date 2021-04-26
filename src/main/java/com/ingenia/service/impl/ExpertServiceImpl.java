@@ -2,6 +2,7 @@ package com.ingenia.service.impl;
 
 import com.ingenia.dao.ExpertDAO;
 import com.ingenia.model.Expert;
+import com.ingenia.payload.request.ExpertEditRequest;
 import com.ingenia.service.ExpertService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -44,8 +45,8 @@ public class ExpertServiceImpl implements ExpertService {
     }
 
     @Override
-    public Expert updateExpert(Long id, Expert expert) {
-        return expertDAO.updateExpert(id, expert);
+    public Expert updateExpert(Long id, ExpertEditRequest expertUpdated) {
+        return expertDAO.updateExpert(id, expertUpdated);
     }
 
     @Override

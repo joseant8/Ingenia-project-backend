@@ -1,6 +1,7 @@
 package com.ingenia.service;
 
 import com.ingenia.model.Expert;
+import com.ingenia.payload.request.ExpertEditRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -50,10 +51,10 @@ public interface ExpertService {
     /**
      * Actualiza un experto ya existente.
      * @param id
-     * @param expert experto
+     * @param expertUpdated petición de actualización de experto
      * @return Experto actualizado. Si no se encuentra en la BD, devuelve un experto con parámetros vacíos (no se guarda en la BD).
      */
-    public Expert updateExpert(Long id, Expert expert);
+    public Expert updateExpert(Long id, ExpertEditRequest expertUpdated);
 
     // eliminar
 

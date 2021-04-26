@@ -1,6 +1,7 @@
 package com.ingenia.dao;
 
 import com.ingenia.model.Expert;
+import com.ingenia.payload.request.ExpertEditRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
@@ -50,10 +51,10 @@ public interface ExpertDAO {
     /**
      * Actualiza un experto ya existente.
      * @param id
-     * @param expertUpdated experto
+     * @param expertUpdated request
      * @return Experto actualizado. Si no se encuentra en la BD, devuelve un experto con parámetros vacíos.
      */
-    public Expert updateExpert(Long id, Expert expertUpdated);
+    public Expert updateExpert(Long id, ExpertEditRequest expertUpdated);
 
     // eliminar
 

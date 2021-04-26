@@ -1,6 +1,7 @@
 package com.ingenia.controller;
 
 import com.ingenia.model.Expert;
+import com.ingenia.payload.request.ExpertEditRequest;
 import com.ingenia.service.ExpertService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -78,12 +79,9 @@ public class ExpertController {
     // --------------------------
 
     @PutMapping("/expertos/{id}")
-    public ResponseEntity<Expert> updateExpert(@PathVariable Long id, @RequestBody Expert expert){
-        if(expert.getId() == null){
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+    public ResponseEntity<Expert> updateExpert(@PathVariable Long id, @RequestBody ExpertEditRequest request){
 
-        Expert expertoActualizado = service.updateExpert(id, expert);
+        Expert expertoActualizado = service.updateExpert(id, request);
 
         if(expertoActualizado.getId() != null){
             return ResponseEntity.ok().body(expertoActualizado);
