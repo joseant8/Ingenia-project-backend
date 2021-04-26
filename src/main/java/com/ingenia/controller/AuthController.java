@@ -57,7 +57,7 @@ public class AuthController<JwtUtils> {
         if (userRepository.existsByUsername(signUpRequest.getUsername())) {
             return ResponseEntity
                     .badRequest()
-                    .body(new MessageResponse("Error: Este email ya está registrado."));
+                    .body(new MessageResponse("Error: Este usuario ya está registrado."));
         }
 
         // Crea nueva cuenta de usuario
