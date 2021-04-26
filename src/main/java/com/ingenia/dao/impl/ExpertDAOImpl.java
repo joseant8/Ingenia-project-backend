@@ -2,6 +2,7 @@ package com.ingenia.dao.impl;
 
 import com.ingenia.dao.ExpertDAO;
 import com.ingenia.model.Expert;
+import com.ingenia.payload.request.ExpertEditRequest;
 import com.ingenia.repository.ExpertRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -108,19 +109,33 @@ public class ExpertDAOImpl implements ExpertDAO {
     /**
      * Actualiza un experto ya existente.
      * @param id
-     * @param expertUpdated experto
+     * @param expertUpdated petición de actualización del experto
      * @return Experto actualizado. Si no se encuentra en la BD, devuelve un experto con parámetros vacíos.
      */
     @Override
-    public Expert updateExpert(Long id, Expert expertUpdated) {
+    public Expert updateExpert(Long id, ExpertEditRequest expertUpdated) {
         Optional<Expert> expertoBD = Optional.empty();
         if(id != null){
             expertoBD = repository.findById(id);
         }
 
         if(expertoBD.isPresent()){
-            expertUpdated.setUpdated_at(new Date());
-            return repository.save(expertUpdated);
+            //
+            if(expertUpdated.getNombre() != null){
+                expertoBD.get().setNombre(expertUpdated.getNombre());
+            }
+            if(expertUpdated.getNif() != null){
+                expertoBD.get().setNif(expertUpdated.getNif());
+            }
+            if(expertUpdated.getContacto_telefono() != null){
+                expertoBD.get().setContacto_telefono(expertUpdated.getContacto_telefono());
+            }
+            if(expertUpdated.getContacto_email() != null){
+                expertoBD.get().setContacto_email(expertUpdated.getContacto_email());
+            }
+
+            expertoBD.get().setUpdated_at(new Date());
+            return repository.save(expertoBD.get());
         }else{
             return new Expert();
         }
