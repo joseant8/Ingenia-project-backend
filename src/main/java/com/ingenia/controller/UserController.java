@@ -10,6 +10,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200", methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE})
 @RequestMapping("/API")
 public class UserController {
 
