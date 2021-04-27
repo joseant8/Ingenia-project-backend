@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
+@CrossOrigin(origins = {"http://localhost:4200", "https://ingenia-project-frontend-app.vercel.app/login"}, methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE})
 @RequestMapping("/API/auth")  // /API/auth
 public class AuthController<JwtUtils> {
 

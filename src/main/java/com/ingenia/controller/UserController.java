@@ -10,6 +10,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 @RestController
+@CrossOrigin(origins = {"http://localhost:4200", "https://ingenia-project-frontend-app.vercel.app/login"}, methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE})
 @RequestMapping("/API")
 public class UserController {
 
