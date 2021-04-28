@@ -53,7 +53,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         // Cross-Site Request Forgery CSRF
         // CORS (Cross-origin resource sharing)
-        http.cors().and().csrf().disable()
+        // http.cors().and().csrf().disable()
+        http.csrf().disable()
                 .exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .authorizeRequests().antMatchers("/API/auth/**").permitAll()
