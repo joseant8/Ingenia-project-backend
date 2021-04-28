@@ -12,7 +12,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200", "https://ingenia-project-frontend-app.vercel.app/login"}, methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE})
+@CrossOrigin(origins = {"http://localhost:4200", "https://ingenia-project-frontend-app.vercel.app"}, methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE})
 @RequestMapping("/API")
 public class TagController {
 
@@ -27,7 +27,12 @@ public class TagController {
     // -----------------------------
 
     @GetMapping("/etiquetas")
-    public List<Tag> getAllTags(){
+    public List<Tag> getAllTags(@RequestParam(name="nombre", required = false) String nombre, @RequestParam(name="orden", required = false) String orden){
+        if(nombre != null){
+            return service.tagsFilterByNameContains(nombre);
+        }else if(orden != null){
+            return service.getAllTagsOrdered(orden);
+        }
         return service.getAllTags();
     }
 

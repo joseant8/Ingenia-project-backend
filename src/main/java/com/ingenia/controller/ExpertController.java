@@ -3,9 +3,6 @@ package com.ingenia.controller;
 import com.ingenia.model.Expert;
 import com.ingenia.payload.request.ExpertEditRequest;
 import com.ingenia.service.ExpertService;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +12,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200", "https://ingenia-project-frontend-app.vercel.app/login"}, methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE})
+@CrossOrigin(origins = {"http://localhost:4200", "https://ingenia-project-frontend-app.vercel.app"}, methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE})
 @RequestMapping("/API")
 public class ExpertController {
 
@@ -30,20 +27,26 @@ public class ExpertController {
     // -----------------------------
 
     @GetMapping("/expertos")
-    public List<Expert> getAllExperts(){
+    public List<Expert> getAllExperts(@RequestParam(name="nombre", required = false) String nombre,
+                                      @RequestParam(name="estado", required = false) String estado,
+                                      @RequestParam(name="etiqueta", required = false) String etiqueta,
+                                      @RequestParam(name="valoracion", required = false) Integer valoracion,
+                                      @RequestParam(name="orden", required = false) String orden){
+
+        if(nombre != null){
+            return service.filterByNameContains(nombre);
+        }else if(estado != null){    // todos, validado, pendiente
+            return service.filterByState(estado);
+        }else if(etiqueta != null){
+            return service.filterByTag(etiqueta);
+        }else if(valoracion != null){
+            return service.filterByPunctuation(valoracion);
+        }else if(orden != null){
+            return service.getAllExpertsOrdered(orden);
+        }
         return service.getAllExperts();
     }
 
-
-    // Paginación
-    @GetMapping("/expertos/paginacion")
-    public List<Expert> getAllExpertsPaged() {
-
-        Pageable paging = PageRequest.of(1, 5);
-        Page<Expert> pagedResult = service.getAllExpertsPaging(paging);
-        List<Expert> listP = pagedResult.getContent();
-        return listP;
-    }
 
 
     @GetMapping("/expertos/{id}")
@@ -53,11 +56,6 @@ public class ExpertController {
             return ResponseEntity.ok().body(expertoBD);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
-
-    @GetMapping("/expertos/nombre/{name}")
-    public List<Expert> filterByNameContains(@PathVariable String name){
-        return service.filterByNameContains(name);
     }
 
 

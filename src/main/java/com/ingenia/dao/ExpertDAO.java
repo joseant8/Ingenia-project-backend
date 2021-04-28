@@ -17,11 +17,6 @@ public interface ExpertDAO {
      */
     public List<Expert> getAllExperts();
 
-    /**
-     * Obtener todos los expertos de la BD con paginación.
-     * @return Lista de expertos paginada.
-     */
-    public Page<Expert> getAllExpertsPaging(Pageable paging);
 
     /**
      * Obtener un experto por su id.
@@ -30,12 +25,44 @@ public interface ExpertDAO {
      */
     public Expert getExpert(Long id);
 
+
     /**
      * Filtra los expertos con el nombre o parte de él que se pasa como parámetro.
      * @param name nombre o subnombre
      * @return Lista de expertos filtrada.
      */
     public List<Expert> filterByNameContains(String name);
+
+
+    /**
+     * Filtra los expertos según el estado.
+     * @param state estado
+     * @return Lista de expertos filtrada.
+     */
+    public List<Expert> filterByState(String state);
+
+
+    /**
+     * Filtra los expertos que contengan la etiqueta indicada.
+     * @param nameTag nombre etiqueta
+     * @return Lista de expertos filtrada o lista vacía si no se ha encontrado la etiqueta.
+     */
+    public List<Expert> filterByTag(String nameTag);
+
+
+    /**
+     * Filtra los expertos con la puntuación indicada.
+     * @param puntuacion
+     * @return Lista de expertos filtrada.
+     */
+    public List<Expert> filterByPunctuation(Integer puntuacion);
+
+    /**
+     * Obtiene la todas los expertos de la BD ordenadas ASC o DESC según se indique por parámeto.
+     * @param order ordenado (ASC o DESC)
+     * @return Lista ordenada de expertos.
+     */
+    public List<Expert> getAllExpertsOrdered(String order);
 
     // crear
 

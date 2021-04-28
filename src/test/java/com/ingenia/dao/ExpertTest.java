@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 @SpringBootTest
 public class ExpertTest {
 
@@ -19,7 +21,7 @@ public class ExpertTest {
     @Test
     @DisplayName("Crear un experto y comprobar que tiene la fecha de creación")
     public void createOneExpertCheckDate() {
-        Expert experto1 = new Expert("Mario López Serrano", null, "mañanas", null, null, "123456734", "email@email.com",
+        Expert experto1 = new Expert("Mario López Serrano", null, "mañanas", null, "direccion", null, "123456734", "email@email.com",
                 "Valencia", "e", "10.00", "15.00", 70, "12345678A", "Hola", "",
                 "e", "", null, null, null, null, State.PENDIENTE);
 
@@ -41,6 +43,24 @@ public class ExpertTest {
         Assertions.assertNotNull(expertoActualizado.getUpdated_at());
         Assertions.assertNotEquals(expertoActualizado.getCreated_at() ,expertoActualizado.getUpdated_at());
 
+    }
+
+    @Test
+    @DisplayName("Expertos filtrados por nombre")
+    public void ExpertsFilterByName() {
+        List<Expert> expertos = service.filterByNameContains("Ant");
+        for (Expert e: expertos) {
+            System.out.println(e.getNombre());
+        }
+    }
+
+    @Test
+    @DisplayName("Expertos filtrados por estado")
+    public void ExpertsFilterByState() {
+        List<Expert> expertos = service.filterByState("pendiente");
+        for (Expert e: expertos) {
+            System.out.println(e.getEstado());
+        }
     }
 
 

@@ -31,6 +31,8 @@ public class Expert {
 
     private Boolean autonomo;
 
+    private String direccion;
+
     private String contacto_telefono;
 
     @Column(unique=true)
@@ -77,11 +79,12 @@ public class Expert {
     public Expert() {
     }
 
-    public Expert(String nombre, String estado_motivo, String disponibilidad, String modalidad, Boolean autonomo, String contacto_telefono, String contacto_email, String contacto_ciudad, String contacto_linkedin, String condiciones_porcentaje, String condiciones_precio_hora, Integer puntuacion, String nif, String credenciales_correo, String credenciales_correo_password, String credenciales_zoom, String credenciales_zoom_password, String fichero_foto, String fichero_cv, String observaciones, String origen, State estado) {
+    public Expert(String nombre, String estado_motivo, String disponibilidad, String modalidad, String direccion, Boolean autonomo, String contacto_telefono, String contacto_email, String contacto_ciudad, String contacto_linkedin, String condiciones_porcentaje, String condiciones_precio_hora, Integer puntuacion, String nif, String credenciales_correo, String credenciales_correo_password, String credenciales_zoom, String credenciales_zoom_password, String fichero_foto, String fichero_cv, String observaciones, String origen, State estado) {
         this.nombre = nombre;
         this.estado_motivo = estado_motivo;
         this.disponibilidad = disponibilidad;
         this.modalidad = modalidad;
+        this.direccion = direccion;
         this.autonomo = autonomo;
         this.contacto_telefono = contacto_telefono;
         this.contacto_email = contacto_email;
@@ -164,6 +167,14 @@ public class Expert {
 
     public void setAutonomo(Boolean autonomo) {
         this.autonomo = autonomo;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
     public String getContacto_telefono() {

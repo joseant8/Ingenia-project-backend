@@ -15,6 +15,20 @@ public interface TagDAO {
     public List<Tag> getAllTags();
 
     /**
+     * Obtiene las etiquetas filtradas por nombre (nombre exacto o subcadena del nombre)
+     * @param name nombre
+     * @return Lista filtrada de etiquetas
+     */
+    public List<Tag> tagsFilterByNameContains(String name);
+
+    /**
+     * Obtiene la todas las etiquetas de la BD ordenadas ASC o DESC según se indique por parámeto.
+     * @param order ordenado (ASC o DESC)
+     * @return Lista ordenada de etiquetas.
+     */
+    public List<Tag> getAllTagsOrdered(String order);
+
+    /**
      * Obtiene una etiqueta según su id.
      * @param id
      * @return Etiqueta.
