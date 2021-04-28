@@ -9,6 +9,7 @@ import com.ingenia.repository.ExpertRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -108,7 +109,7 @@ public class ExpertDAOImpl implements ExpertDAO {
     /**
      * Filtra los expertos que contengan la etiqueta indicada.
      * @param nameTag nombre etiqueta
-     * @return Lista de expertos filtrada.
+     * @return Lista de expertos filtrada o lista vacía si no se ha encontrado la etiqueta.
      */
     @Override
     public List<Expert> filterByTag(String nameTag) {
@@ -141,6 +142,20 @@ public class ExpertDAOImpl implements ExpertDAO {
         criteria.where(builder.equal(root.get("puntuacion"), puntuacion));
 
         return manager.createQuery(criteria).getResultList();
+    }
+
+    /**
+     * Obtiene la todas los expertos de la BD ordenadas ASC o DESC según se indique por parámeto.
+     * @param order ordenado (ASC o DESC)
+     * @return Lista ordenada de expertos.
+     */
+    @Override
+    public List<Expert> getAllExpertsOrdered(String order) {
+        if(order.equals("DESC")){
+            return repository.findAll(Sort.by(Sort.Direction.DESC, "nombre"));
+        }else{
+            return repository.findAll(Sort.by(Sort.Direction.ASC, "nombre"));
+        }
     }
 
 

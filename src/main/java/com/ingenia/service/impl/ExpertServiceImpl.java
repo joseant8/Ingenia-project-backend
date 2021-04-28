@@ -48,6 +48,11 @@ public class ExpertServiceImpl implements ExpertService {
     }
 
     @Override
+    public List<Expert> getAllExpertsOrdered(String order) {
+        return expertDAO.getAllExpertsOrdered(order);
+    }
+
+    @Override
     public Expert createExpert(Expert expert) {
         return expertDAO.createExpert(expert);
     }

@@ -41,7 +41,7 @@ public interface ExpertService {
     /**
      * Filtra los expertos que contengan la etiqueta indicada.
      * @param nameTag nombre etiqueta
-     * @return Lista de expertos filtrada.
+     * @return Lista de expertos filtrada o lista vacía si no se ha encontrado la etiqueta.
      */
     public List<Expert> filterByTag(String nameTag);
 
@@ -51,6 +51,13 @@ public interface ExpertService {
      * @return Lista de expertos filtrada.
      */
     public List<Expert> filterByPunctuation(Integer puntuacion);
+
+    /**
+     * Obtiene la todas los expertos de la BD ordenadas ASC o DESC según se indique por parámeto.
+     * @param order ordenado (ASC o DESC)
+     * @return Lista ordenada de expertos.
+     */
+    public List<Expert> getAllExpertsOrdered(String order);
 
     // crear
 

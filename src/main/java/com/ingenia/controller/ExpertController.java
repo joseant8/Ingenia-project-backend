@@ -30,7 +30,8 @@ public class ExpertController {
     public List<Expert> getAllExperts(@RequestParam(name="nombre", required = false) String nombre,
                                       @RequestParam(name="estado", required = false) String estado,
                                       @RequestParam(name="etiqueta", required = false) String etiqueta,
-                                      @RequestParam(name="valoracion", required = false) Integer valoracion){
+                                      @RequestParam(name="valoracion", required = false) Integer valoracion,
+                                      @RequestParam(name="orden", required = false) String orden){
 
         if(nombre != null){
             return service.filterByNameContains(nombre);
@@ -40,6 +41,8 @@ public class ExpertController {
             return service.filterByTag(etiqueta);
         }else if(valoracion != null){
             return service.filterByPunctuation(valoracion);
+        }else if(orden != null){
+            return service.getAllExpertsOrdered(orden);
         }
         return service.getAllExperts();
     }
