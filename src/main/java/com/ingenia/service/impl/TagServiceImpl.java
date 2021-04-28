@@ -29,6 +29,16 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
+    public List<Tag> tagsFilterByNameContains(String name) {
+        return tagDAO.tagsFilterByNameContains(name);
+    }
+
+    @Override
+    public List<Tag> getAllTagsOrdered(String order) {
+        return tagDAO.getAllTagsOrdered(order);
+    }
+
+    @Override
     public Tag getTag(Long id) {
         return tagDAO.getTag(id);
     }

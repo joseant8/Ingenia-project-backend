@@ -27,7 +27,12 @@ public class TagController {
     // -----------------------------
 
     @GetMapping("/etiquetas")
-    public List<Tag> getAllTags(){
+    public List<Tag> getAllTags(@RequestParam(name="nombre", required = false) String nombre, @RequestParam(name="orden", required = false) String orden){
+        if(nombre != null){
+            return service.tagsFilterByNameContains(nombre);
+        }else if(orden != null){
+            return service.getAllTagsOrdered(orden);
+        }
         return service.getAllTags();
     }
 

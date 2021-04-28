@@ -4,10 +4,14 @@ import com.ingenia.dao.TagDAO;
 import com.ingenia.model.Tag;
 import com.ingenia.repository.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -32,6 +36,36 @@ public class TagDAOImpl implements TagDAO {
     @Override
     public List<Tag> getAllTags() {
         return manager.createQuery("from Tag", Tag.class).getResultList();
+    }
+
+    /**
+     * Obtiene las etiquetas filtradas por nombre (nombre exacto o subcadena del nombre)
+     * @param name nombre
+     * @return Lista filtrada de etiquetas
+     */
+    @Override
+    public List<Tag> tagsFilterByNameContains(String name) {
+        CriteriaBuilder builder = manager.getCriteriaBuilder();
+        CriteriaQuery<Tag> criteria = builder.createQuery(Tag.class);
+        Root<Tag> root = criteria.from(Tag.class);
+
+        criteria.where(builder.like(root.get("nombre"), "%"+name+"%"));
+
+        return manager.createQuery(criteria).getResultList();
+    }
+
+    /**
+     * Obtiene la todas las etiquetas de la BD ordenadas ASC o DESC según se indique por parámeto.
+     * @param order ordenado (ASC o DESC)
+     * @return Lista ordenada de etiquetas.
+     */
+    @Override
+    public List<Tag> getAllTagsOrdered(String order) {
+        if(order.equals("DESC")){
+            return repository.findAll(Sort.by(Sort.Direction.DESC, "nombre"));
+        }else{
+            return repository.findAll(Sort.by(Sort.Direction.ASC, "nombre"));
+        }
     }
 
     /**
