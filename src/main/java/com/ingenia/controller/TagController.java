@@ -12,8 +12,8 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200", "https://ingenia-project-frontend-app.vercel.app"}, methods= {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE})
 @RequestMapping("/API")
+@CrossOrigin(origins = "https://ingenia-project-frontend-app.vercel.app", methods= {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class TagController {
 
     private TagService service;
