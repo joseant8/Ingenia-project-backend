@@ -30,20 +30,23 @@ public class ExpertController {
     // -----------------------------
 
     @GetMapping("/expertos")
-    public List<Expert> getAllExperts(){
+    public List<Expert> getAllExperts(@RequestParam(name="nombre", required = false) String nombre,
+                                      @RequestParam(name="estado", required = false) String estado,
+                                      @RequestParam(name="etiqueta", required = false) String etiqueta,
+                                      @RequestParam(name="valoracion", required = false) Integer valoracion){
+
+        if(nombre != null){
+            return service.filterByNameContains(nombre);
+        }else if(estado != null){    // todos, validado, pendiente
+            return service.filterByState(estado);
+        }else if(etiqueta != null){
+            return service.filterByTag(etiqueta);
+        }else if(valoracion != null){
+            return service.filterByPunctuation(valoracion);
+        }
         return service.getAllExperts();
     }
 
-
-    // Paginación
-    @GetMapping("/expertos/paginacion")
-    public List<Expert> getAllExpertsPaged() {
-
-        Pageable paging = PageRequest.of(1, 5);
-        Page<Expert> pagedResult = service.getAllExpertsPaging(paging);
-        List<Expert> listP = pagedResult.getContent();
-        return listP;
-    }
 
 
     @GetMapping("/expertos/{id}")
@@ -53,11 +56,6 @@ public class ExpertController {
             return ResponseEntity.ok().body(expertoBD);
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
-
-    @GetMapping("/expertos/nombre/{name}")
-    public List<Expert> filterByNameContains(@PathVariable String name){
-        return service.filterByNameContains(name);
     }
 
 

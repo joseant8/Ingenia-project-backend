@@ -10,6 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 @SpringBootTest
 public class ExpertTest {
 
@@ -41,6 +43,24 @@ public class ExpertTest {
         Assertions.assertNotNull(expertoActualizado.getUpdated_at());
         Assertions.assertNotEquals(expertoActualizado.getCreated_at() ,expertoActualizado.getUpdated_at());
 
+    }
+
+    @Test
+    @DisplayName("Expertos filtrados por nombre")
+    public void ExpertsFilterByName() {
+        List<Expert> expertos = service.filterByNameContains("Ant");
+        for (Expert e: expertos) {
+            System.out.println(e.getNombre());
+        }
+    }
+
+    @Test
+    @DisplayName("Expertos filtrados por estado")
+    public void ExpertsFilterByState() {
+        List<Expert> expertos = service.filterByState("pendiente");
+        for (Expert e: expertos) {
+            System.out.println(e.getEstado());
+        }
     }
 
 

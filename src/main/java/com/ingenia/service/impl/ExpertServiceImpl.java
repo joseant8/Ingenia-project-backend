@@ -4,8 +4,6 @@ import com.ingenia.dao.ExpertDAO;
 import com.ingenia.model.Expert;
 import com.ingenia.payload.request.ExpertEditRequest;
 import com.ingenia.service.ExpertService;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,11 +23,6 @@ public class ExpertServiceImpl implements ExpertService {
     }
 
     @Override
-    public Page<Expert> getAllExpertsPaging(Pageable paging) {
-        return getAllExpertsPaging(paging);
-    }
-
-    @Override
     public Expert getExpert(Long id) {
         return expertDAO.getExpert(id);
     }
@@ -37,6 +30,21 @@ public class ExpertServiceImpl implements ExpertService {
     @Override
     public List<Expert> filterByNameContains(String name) {
         return expertDAO.filterByNameContains(name);
+    }
+
+    @Override
+    public List<Expert> filterByState(String state) {
+        return expertDAO.filterByState(state);
+    }
+
+    @Override
+    public List<Expert> filterByTag(String nameTag) {
+        return expertDAO.filterByTag(nameTag);
+    }
+
+    @Override
+    public List<Expert> filterByPunctuation(Integer puntuacion) {
+        return expertDAO.filterByPunctuation(puntuacion);
     }
 
     @Override
