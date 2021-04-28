@@ -21,7 +21,7 @@ public class ExpertTest {
     @Test
     @DisplayName("Crear un experto y comprobar que tiene la fecha de creación")
     public void createOneExpertCheckDate() {
-        Expert experto1 = new Expert("Mario López Serrano", null, "mañanas", null, null, "123456734", "email@email.com",
+        Expert experto1 = new Expert("Mario López Serrano", null, "mañanas", null, "direccion", null, "123456734", "email@email.com",
                 "Valencia", "e", "10.00", "15.00", 70, "12345678A", "Hola", "",
                 "e", "", null, null, null, null, State.PENDIENTE);
 
