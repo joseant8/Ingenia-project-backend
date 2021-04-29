@@ -205,6 +205,32 @@ public class ExpertDAOImpl implements ExpertDAO {
             if(expertUpdated.getContacto_email() != null){
                 expertoBD.get().setContacto_email(expertUpdated.getContacto_email());
             }
+            if(expertUpdated.getIds_etiquetas() != null){
+                for (Long idTag: expertUpdated.getIds_etiquetas()) {
+                    Tag tag = manager.find(Tag.class, idTag);
+                    if(tag != null && !expertoBD.get().getEtiquetas().contains(tag)){
+                        expertoBD.get().getEtiquetas().add(tag);
+                    }
+                }
+            }
+            if(expertUpdated.getDireccion() != null){
+                expertoBD.get().setDireccion(expertUpdated.getDireccion());
+            }
+            if(expertUpdated.getContacto_linkedin() != null){
+                expertoBD.get().setContacto_linkedin(expertUpdated.getContacto_linkedin());
+            }
+            if(expertUpdated.getDisponibilidad() != null){
+                expertoBD.get().setDisponibilidad(expertUpdated.getDisponibilidad());
+            }
+            if(expertUpdated.getEstado() != null){
+                expertoBD.get().setEstado(expertUpdated.getEstado());
+            }
+            if(expertUpdated.getPuntuacion() != null){
+                expertoBD.get().setPuntuacion(expertUpdated.getPuntuacion());
+            }
+            if(expertUpdated.getObservaciones() !=null){
+                expertoBD.get().setObservaciones(expertUpdated.getObservaciones());
+            }
 
             expertoBD.get().setUpdated_at(new Date());
             return repository.save(expertoBD.get());
