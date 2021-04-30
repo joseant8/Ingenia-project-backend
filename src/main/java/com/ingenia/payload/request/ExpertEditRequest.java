@@ -1,6 +1,7 @@
 package com.ingenia.payload.request;
 
 import com.ingenia.model.State;
+import com.ingenia.model.Tag;
 
 import java.util.List;
 
@@ -14,7 +15,9 @@ public class ExpertEditRequest {
 
     private String contacto_email;
 
-    private List<Long> ids_etiquetas;
+    private Long etiqueta_add_id;
+
+    private Long etiqueta_delete_id;
 
     private String direccion;
 
@@ -63,12 +66,20 @@ public class ExpertEditRequest {
         this.contacto_email = contacto_email;
     }
 
-    public List<Long> getIds_etiquetas() {
-        return ids_etiquetas;
+    public Long getEtiqueta_add_id() {
+        return etiqueta_add_id;
     }
 
-    public void setIds_etiquetas(List<Long> ids_etiquetas) {
-        this.ids_etiquetas = ids_etiquetas;
+    public void setEtiqueta_add_id(Long etiqueta_add_id) {
+        this.etiqueta_add_id = etiqueta_add_id;
+    }
+
+    public Long getEtiqueta_delete_id() {
+        return etiqueta_delete_id;
+    }
+
+    public void setEtiqueta_delete_id(Long etiqueta_delete_id) {
+        this.etiqueta_delete_id = etiqueta_delete_id;
     }
 
     public String getDireccion() {

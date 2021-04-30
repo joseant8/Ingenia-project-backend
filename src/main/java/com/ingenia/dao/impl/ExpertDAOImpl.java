@@ -205,13 +205,13 @@ public class ExpertDAOImpl implements ExpertDAO {
             if(expertUpdated.getContacto_email() != null){
                 expertoBD.get().setContacto_email(expertUpdated.getContacto_email());
             }
-            if(expertUpdated.getIds_etiquetas() != null){
-                for (Long idTag: expertUpdated.getIds_etiquetas()) {
-                    Tag tag = manager.find(Tag.class, idTag);
-                    if(tag != null && !expertoBD.get().getEtiquetas().contains(tag)){
-                        expertoBD.get().getEtiquetas().add(tag);
-                    }
-                }
+            if(expertUpdated.getEtiqueta_add_id() != null){
+                Tag tag = manager.find(Tag.class, expertUpdated.getEtiqueta_add_id());
+                expertoBD.get().getEtiquetas().add(tag);
+            }
+            if(expertUpdated.getEtiqueta_delete_id() != null){
+                Tag tag = manager.find(Tag.class, expertUpdated.getEtiqueta_delete_id());
+                expertoBD.get().getEtiquetas().remove(tag);
             }
             if(expertUpdated.getDireccion() != null){
                 expertoBD.get().setDireccion(expertUpdated.getDireccion());
